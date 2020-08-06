@@ -29,7 +29,7 @@ image = new Array();
 image[0]="img/homepage-bg.jpg"
 image[1]="img/homepage-bg.jpg"
 image[2]="img/homepage-bg.jpg"
-$('.main-screen__background').html(" <img data-src="+image[a]+"> ");
+$('.main-screen__background').html(" <img src="+image[a]+"> ");
 //-------end main-screen img change-------
 
 //-------start projects change-------
