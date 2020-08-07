@@ -3,17 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="interior design consultansy services">
+	<meta name="keywords" content="SAY Studio, Workplace design, Hospitality design, F&B design, Residential design and Retail design, consultansy services" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>SayStudio</title>
+	<link rel="shortcut icon" href="/img/favico.png" type="image/x-icon">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" />
 	<link rel="stylesheet" href="css/slick.css">
- <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css'>
-  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css'>
-
-
-
-
-
 	<link rel="stylesheet" href="css/style.min.css">
 
 </head>
@@ -24,8 +21,8 @@
 	<div class="container">
 		<div class="logo">
 			<a href="index.html">
-				<img src="img/logo-black.png" alt="" class="logo--static">
-				<img src="img/logo-sticky.png" alt="" class="logo--sticky">
+				<img src="img/logo-black.png" alt="logo" class="logo--static">
+				<img src="img/logo-sticky.png" alt="logo" class="logo--sticky">
 
 			</a>
 		</div>
@@ -66,13 +63,27 @@
 <!-- -----------------start contact wrapper---------------- -->
 <section class="contact-content">
 	<div class="container">
-		<form action="" class="contant-form">
-			<input type="text" placeholder="Name (Required)" required="">
-			<input type="email" placeholder="Email (Required)" required="">
-			<input type="text" placeholder="Mobile">
-			<input type="text" placeholder="Message">
+		<form action="" class="contant-form" id="form" method="post" >
+		
+<div class="input-wrapper">
+    <input type="text" id="first_name" name="name" placeholder="Name (Required)" /></div>
+
+  
+ <div class="input-wrapper">
+    <input type="text" id="email" name="email" placeholder="Email (Required)"/></div>
+    <div class="input-wrapper">
+  <input type="text" placeholder="Mobile"></div>
+  <div class="input-wrapper">
+   <input type="text" placeholder="Moessage"></div>
+  <div class="form-footer">
+    
+   <input type="submit" value="Submit" id="submit" name="submit" class="button" />
+  </div>
+  <div>
+    <!-- <input type="submit" value="Submit" /> -->
+  </div>
 			<div class="form-footer">
-				<button class="button">Send</button>
+			
 			</div>
 		</form>
 		<div class="contact-info">
@@ -94,20 +105,20 @@
 		<div class="contact-info__items">
 			<a href="tel:+971 55 607 7997" class="contact-info__item">
 				<span class="contact-img">
-					<img src="img/contact1.png" alt="">
+					<img src="img/contact1.png" alt="phone icon">
 				</span>
 				     +971 55 607 7997
 
 			</a>
 			<a href="mailto:matthew.sexton@saystudio.com" class="contact-info__item">
 				<span class="contact-img">
-					<img src="img/contact2.png" alt="">
+					<img src="img/contact2.png" alt="mail icon">
 				</span>
 				matthew.sexton@saystudio.com
 			</a>
 			<a href="#" class="contact-info__item">
 				<span class="contact-img">
-					<img src="img/contact3.png" alt="">
+					<img src="img/contact3.png" alt="map icon">
 				</span>
 				Get directions
 			</a>
@@ -196,11 +207,65 @@ var contentString = '';
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwwVRgEBYlrrjA43vW4LVAWBBnS_zQQ7Y&callback=initMap"
     async defer></script>
 
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="js/lazy.js"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js'></script>	
-	<script src="js/libs.min.js"></script>
-	<script src="js/main.js"></script>
+
+
+<script>$(document).ready(function() {
+  $('#form').submit(function(e) {
+    e.preventDefault();
+    var first_name = $('#first_name').val();
+    var email = $('#email').val();
+    $(".error").remove();
+ 
+    if (first_name.length< 1) {
+      $('#first_name').after('<span class="error">This field is required</span>');
+    }
+    if (first_name.length< 2 && first_name.length== 1 ) {
+      $('#first_name').after('<span class="error">This field must be at least 2 characters long</span>');
+    }
+    
+   // if (email.length< 2 && email.length== 1 ) {
+   //    $('#first_name').after('<span class="error">This field must be at least 2 characters long</span>');
+   //  }
+    if (email.length< 1) {
+      $('#email').after('<span class="error">This field is required</span>');
+    } else {
+      var regEx = /.+?\@.+/;
+      var validEmail = regEx.test(email);
+      if (!validEmail) {
+        $('#email').after('<span class="error">Enter a valid email</span>');
+      }
+    }
+
+  });
+
+
+
+});
+
+
+
+
+
+</script>
+
+<script type="text/javascript">
+var submit_name = $('[name="submit"]');
+submit_name.attr('disabled','disabled');
+$('input').keyup(function () {
+if ($('[name="email"]').val().length>0 && $('[name="name"]').val().length>0) submit_name.removeAttr('disabled');
+else submit_name.attr('disabled','disabled');
+});
+
+</script>
+
+<script async src="js/lazy.js"></script>
+ 
+	<script async src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js"></script>
+	<script async src="js/libs.min.js"></script>
+	<script async src="js/main.js"></script>
 </body>
 </html>
