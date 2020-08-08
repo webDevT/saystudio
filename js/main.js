@@ -64,7 +64,17 @@ $('.slider2').slick({
 slidesToShow: 4,
 infinite: true,
 nextArrow: false,
-prevArrow: false
+prevArrow: false,
+responsive: [
+    {
+        breakpoint: 768,
+        settings: {
+      slidesToShow: 3
+    }
+
+    }
+
+]
 
 });
 
