@@ -63,8 +63,8 @@ $('.slider2').slick({
 
 slidesToShow: 4,
 infinite: true,
-nextArrow: false,
-prevArrow: false,
+nextArrow: $('.next-gallery'),
+prevArrow: $('.prev-gallery'),
 responsive: [
     {
         breakpoint: 768,
@@ -108,5 +108,10 @@ $(document).ready(function () {
  $('[data-fancybox="gallery1"]').fancybox({
   transitionEffect: "fade",
   transitionDuration: 0,
+  mobile : {
+    clickContent : "close",
+    clickSlide : "close",
+    clickOutside : 'close'
+}
 
 });
